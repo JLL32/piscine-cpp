@@ -23,13 +23,23 @@ Contact PhoneBook::search(unsigned int index) const {
   return this->_contacts[index];
 }
 
+static void print_cell(std::string str) {
+  std::cout << str << std::setw(10) << std::setfill(' ') << "|";
+}
+
 void PhoneBook::print() const {
-  std::cout << std::setfill(' ') << std::setw(10);
   for (unsigned int i = 0; i < this->_length; ++i) {
     const Contact contact = this->_contacts[i];
-    std::cout << i << '|' << contact.get_first_name() << '|'
-              << contact.get_last_name() << '|' << contact.get_nickname() << '|'
-              << contact.get_phone_number() << std::endl;
+    // std::cout << i << '|' << contact.get_first_name() << '|'
+    //           << contact.get_last_name() << '|' << contact.get_nickname() <<
+    //           '|'
+    //           << contact.get_phone_number() << std::endl;
+    print_cell(std::to_string(i));
+    print_cell(contact.get_first_name());
+    print_cell(contact.get_last_name());
+    print_cell(contact.get_nickname());
+    print_cell(contact.get_phone_number());
+    std::cout << std::endl;
   }
 }
 

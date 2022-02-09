@@ -6,14 +6,14 @@
 #define CONTACTBUILDER_H
 
 #include "Contact.hpp"
-#include <string>
 #include <iostream>
+#include <string>
 
 namespace phone_book {
-    class ContactBuilder {
-    public:
-        static Contact build();
-    };
-}
+class ContactBuilder {
+public:
+  static Contact build();
+};
+} // namespace phone_book
 
-#endif //CONTACTBUILDER_H
+#endif // CONTACTBUILDER_H

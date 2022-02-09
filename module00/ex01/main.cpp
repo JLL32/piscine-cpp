@@ -27,13 +27,12 @@ code get_cmd_code(const std::string &cmd) {
 }
 }; // namespace phone_book
 
-
 int main() {
   phone_book::PhoneBook phone_bk;
   std::string cmd("EXIT");
 
   for (;;) {
-    std::cout << "~>";
+    std::cout << "~> ";
     std::cin >> cmd;
     switch (phone_book::get_cmd_code(cmd)) {
     case phone_book::ADD: {
