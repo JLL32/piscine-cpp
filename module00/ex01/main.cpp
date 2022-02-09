@@ -34,21 +34,31 @@ int main() {
   for (;;) {
     std::cout << "~> ";
     std::cin >> cmd;
+
     switch (phone_book::get_cmd_code(cmd)) {
     case phone_book::ADD: {
       phone_bk.add(phone_book::ContactBuilder::build());
       continue;
     }
+
     case phone_book::SEARCH: {
       phone_bk.print();
       unsigned int index;
-      std::cin >> index;
-      phone_book::Contact contact = phone_bk.search(index);
+      for (;;) {
+        std::cin >> index;
+        if (phone_bk.includes(index))
+          break;
+        std::cout << "Invalid Index" << std::endl;
+      }
+      phone_book::Contact contact = phone_bk.find(index);
+      contact.print();
       continue;
     }
+
     case phone_book::EXIT: {
       break;
     }
+
     default: {
       std::cout << "Invalid Command" << std::endl;
       continue;

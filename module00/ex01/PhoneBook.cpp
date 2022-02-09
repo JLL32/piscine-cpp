@@ -5,8 +5,11 @@
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 #include <iomanip>
+#include <ostream>
 
 namespace phone_book {
+
+PhoneBook::PhoneBook() { this->_length = 0; }
 
 void PhoneBook::add(const Contact contact) {
   static int i;
@@ -17,31 +20,34 @@ void PhoneBook::add(const Contact contact) {
     this->_length += 1;
 }
 
-Contact PhoneBook::search(unsigned int index) const {
-  if (index >= this->_length)
-    index = this->_length - 1;
+Contact PhoneBook::find(unsigned int index) const {
   return this->_contacts[index];
 }
 
-static void print_cell(std::string str) {
-  std::cout << str << std::setw(10) << std::setfill(' ') << "|";
+bool PhoneBook::includes(unsigned int index) const {
+  if (index >= this->_length || index < this->_length - 1)
+    return false;
+  return true;
 }
 
 void PhoneBook::print() const {
   for (unsigned int i = 0; i < this->_length; ++i) {
     const Contact contact = this->_contacts[i];
-    // std::cout << i << '|' << contact.get_first_name() << '|'
-    //           << contact.get_last_name() << '|' << contact.get_nickname() <<
-    //           '|'
-    //           << contact.get_phone_number() << std::endl;
-    print_cell(std::to_string(i));
-    print_cell(contact.get_first_name());
-    print_cell(contact.get_last_name());
-    print_cell(contact.get_nickname());
-    print_cell(contact.get_phone_number());
+    this->_print_cell(std::to_string(i));
+    std::cout << '|';
+    this->_print_cell(contact.get_first_name());
+    std::cout << '|';
+    this->_print_cell(contact.get_last_name());
+    std::cout << '|';
+    this->_print_cell(contact.get_nickname());
     std::cout << std::endl;
   }
 }
 
-PhoneBook::PhoneBook() { this->_length = 0; }
+void PhoneBook::_print_cell(std::string str) const {
+  std::cout << std::setw(10);
+  std::cout << std::left;
+  std::cout << str;
+}
+
 } // namespace phone_book

@@ -1,4 +1,4 @@
-CC=clang++
+CC=c++
 SRC=main.cpp PhoneBook.cpp Contact.cpp ContactBuilder.cpp
 INCL=PhoneBook.hpp Contact.hpp
 CFLAGS=-Wall -Wextra -Werror -std=c++98
