@@ -20,14 +20,16 @@ void PhoneBook::add(const Contact contact) {
     this->_length += 1;
 }
 
+unsigned int PhoneBook::get_length() const {
+  return this->_length;
+}
+
 Contact PhoneBook::find(unsigned int index) const {
   return this->_contacts[index];
 }
 
 bool PhoneBook::includes(unsigned int index) const {
-  if (index >= this->_length || index < this->_length - 1)
-    return false;
-  return true;
+  return !(index >= this->_length || index < this->_length - 1);
 }
 
 void PhoneBook::print() const {

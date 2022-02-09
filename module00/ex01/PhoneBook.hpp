@@ -16,15 +16,15 @@ public:
   PhoneBook();
 
   void add(Contact contact);
-
+  unsigned int get_length() const;
   Contact find(unsigned int index) const;
   bool includes(unsigned int index) const;
-
   void print() const;
 
 private:
   Contact _contacts[CAPACITY];
   unsigned int _length;
+
   void _print_cell(std::string str) const;
 };
 } // namespace phone_book
