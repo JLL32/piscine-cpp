@@ -18,7 +18,7 @@ fclean: clean
 re: clean all
 
 run: all
-	./megaphone
+	./phonebook
 
 test:
 	echo "no test specified"
