@@ -14,12 +14,10 @@ int main(int argc, char **argv) {
   }
 
   std::ofstream output(std::string(argv[1]) + ".replace");
-  std::cout << "here1";
   const std::string str1 = argv[2];
   const std::string str2 = argv[3];
 
   for (std::string line; getline(input, line);) {
-    std::cout << "here2";
     for (;;) {
       const size_t index = line.find(str1);
       if (index == std::string::npos)
