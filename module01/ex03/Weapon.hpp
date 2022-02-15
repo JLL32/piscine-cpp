@@ -5,10 +5,16 @@
 #ifndef PISCINE_CPP_WEAPON_HPP
 #define PISCINE_CPP_WEAPON_HPP
 
+#include <string>
 
 class Weapon {
+public:
+  Weapon(std::string type);
+  void setType(const std::string type);
+  const std::string getType() const;
 
+private:
+  std::string type;
 };
 
-
-#endif //PISCINE_CPP_WEAPON_HPP
+#endif // PISCINE_CPP_WEAPON_HPP
