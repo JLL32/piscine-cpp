@@ -7,7 +7,7 @@
 
 typedef void (Karen::*levelptr)();
 
-int level_toindex(std::string level) {
+static int level_toindex(std::string level) {
   const std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
   int i = 0;
   for (; i != 4 && level != levels[i]; i++)
