@@ -5,13 +5,13 @@
 int main() {
     Bureaucrat bob("Bob", 150);
 
+    std::cout << bob << std::endl;
+
     try {
         bob.decrementGrade();
-    } catch (std::exception &e)
-    {
+    } catch (std::exception &e) {
         std::cout << e.what() << std::endl;
-        std::cout << "hello" << std::endl;
     }
 
-  return 0;
+    return 0;
 }

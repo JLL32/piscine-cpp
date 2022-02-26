@@ -40,9 +40,10 @@ public:
     };
 
 private:
-    const std::string _NAME;
+    const std::string _name;
     int _grade;
 };
 
+std::ostream &operator<<(std::ostream &s, const Bureaucrat &bureaucrat);
 
 #endif //EX00_BUREAUCRAT_HPP
