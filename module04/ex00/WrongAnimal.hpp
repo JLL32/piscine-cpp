@@ -11,11 +11,17 @@
 class WrongAnimal {
 public:
     WrongAnimal();
+
     WrongAnimal(const WrongAnimal &copy);
+
     virtual ~WrongAnimal();
+
     WrongAnimal &operator=(const WrongAnimal &rhs);
+
     std::string getType() const;
+
     void makeSound() const;
+
 protected:
     std::string type;
 };

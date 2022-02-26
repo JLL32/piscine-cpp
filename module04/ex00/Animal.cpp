@@ -4,7 +4,7 @@
 
 #include "Animal.hpp"
 
-Animal::Animal(): type("Animal") {
+Animal::Animal() : type("Animal") {
     std::cout << "Default Constructor for " << this->type << std::endl;
 }
 

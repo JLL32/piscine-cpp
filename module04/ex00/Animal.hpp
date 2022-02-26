@@ -11,11 +11,17 @@
 class Animal {
 public:
     Animal();
+
     Animal(const Animal &copy);
+
     virtual ~Animal();
+
     Animal &operator=(const Animal &rhs);
+
     std::string getType() const;
+
     virtual void makeSound() const;
+
 protected:
     std::string type;
 };

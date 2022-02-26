@@ -4,7 +4,7 @@
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal(): type("WrongAnimal") {
+WrongAnimal::WrongAnimal() : type("WrongAnimal") {
     std::cout << "Default Constructor for " << this->type << std::endl;
 }
 
