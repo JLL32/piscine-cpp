@@ -19,8 +19,7 @@ Bureaucrat::Bureaucrat(const std::string &name,
     std::cout << "Bureaucrat Name, Grade Constructor" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &copy) {
-    *this = copy;
+Bureaucrat::Bureaucrat(const Bureaucrat &copy): _name(copy._name), _grade(copy._grade)  {
     std::cout << "Bureaucrat Copy Constructor" << std::endl;
 }
 
