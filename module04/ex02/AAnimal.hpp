@@ -10,7 +10,13 @@
 
 class AAnimal {
 public:
+    AAnimal();
+
+    AAnimal(const AAnimal &copy);
+
     virtual ~AAnimal();
+
+    AAnimal &operator=(const AAnimal &rhs);
 
     std::string getType() const;
 
