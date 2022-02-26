@@ -4,7 +4,7 @@
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : _NAME("") {
+Bureaucrat::Bureaucrat() : _NAME(""), _grade(150) {
     std::cout << "Bureaucrat Default Constructor" << std::endl;
 }
 
@@ -15,6 +15,7 @@ Bureaucrat::Bureaucrat(const std::string &name,
         throw Bureaucrat::GradeTooHighException();
     if (grade > 150)
         throw Bureaucrat::GradeTooLowException();
+    this->_grade = grade;
     std::cout << "Bureaucrat Name, Grade Constructor" << std::endl;
 }
 
