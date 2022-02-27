@@ -2,6 +2,7 @@
 // Created by jll32 on 27/2/2022.
 //
 
+#include <fstream>
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm(), _target("") {
@@ -42,5 +43,9 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const throw(Grad
     } catch (std::exception &e) {
         throw;
     }
-    std::cout << "Do Something" << std::endl;
+    std::ifstream  src("ascii-tree", std::ios::binary);
+    std::ofstream  dst(this->_target + "_shrubbery",   std::ios::binary);
+    dst << src.rdbuf();
+    src.close();
+    dst.close();
 }
