@@ -50,6 +50,6 @@ private:
     const int _exec_grade;
 };
 
-std::ostream &operator<<(std::ostream &s, const Bureaucrat &form);
+std::ostream &operator<<(std::ostream &s, const Form &form);
 
 #endif //EX01_FORM_HPP

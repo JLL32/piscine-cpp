@@ -11,5 +11,7 @@ int main() {
     Form agreement("Agreement", 30, 40);
 
     bob.signForm(agreement);
+
+    std::cout << agreement << std::endl;
     return 0;
 }
