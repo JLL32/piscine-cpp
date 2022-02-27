@@ -10,6 +10,8 @@
 #include "PresidentialPardonForm.hpp"
 
 class Intern {
+#define THEN &&
+
 public:
     Intern();
 
