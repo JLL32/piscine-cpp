@@ -8,26 +8,30 @@
 
 #include <string>
 #include <iostream>
+#include "Bureaucrat.hpp"
 
 class Form {
 public:
     Form();
+
     Form(const Form &copy);
 
     Form(const std::string &name,
-               int sign_grade, int exec_grade) throw(Form::GradeTooHighException, Form::GradeTooLowException);
+         int sign_grade, int exec_grade) throw(Form::GradeTooHighException, Form::GradeTooLowException);
 
     virtual ~Form();
 
     Form &operator=(const Form &rhs);
 
+    void beSigned(const Bureaucrat &bureaucrat) throw(Form::GradeTooLowException);
+
+    bool isSigned() const;
+
     std::string getName() const;
 
-    int getGrade() const;
+    int getSignGrade() const;
 
-    void beSigned() throw(Form::GradeTooHighException);
-
-    void decrementGrade() throw(Form::GradeTooLowException);
+    int getExecGrade() const;
 
     class GradeTooHighException : public std::exception {
     public:
@@ -46,5 +50,6 @@ private:
     const int _exec_grade;
 };
 
+std::ostream &operator<<(std::ostream &s, const Bureaucrat &form);
 
 #endif //EX01_FORM_HPP

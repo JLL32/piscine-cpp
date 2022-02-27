@@ -8,6 +8,8 @@
 #include <string>
 #include <iostream>
 
+class Form;
+
 class Bureaucrat {
 public:
     Bureaucrat();
@@ -28,6 +30,8 @@ public:
     void incrementGrade() throw(Bureaucrat::GradeTooHighException);
 
     void decrementGrade() throw(Bureaucrat::GradeTooLowException);
+
+    void signForm(Form &sign) const;
 
     class GradeTooHighException : public std::exception {
     public:

@@ -1,17 +1,15 @@
 #include <iostream>
 #include <string>
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main() {
     Bureaucrat bob("Bob", 150);
 
     std::cout << bob << std::endl;
 
-    try {
-        bob.decrementGrade();
-    } catch (std::exception &e) {
-        std::cout << e.what() << std::endl;
-    }
+    Form agreement("Agreement", 30, 40);
 
+    bob.signForm(agreement);
     return 0;
 }

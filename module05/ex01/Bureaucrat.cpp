@@ -3,6 +3,7 @@
 //
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat() : _name(""), _grade(150) {
     std::cout << "Bureaucrat Default Constructor" << std::endl;
@@ -16,11 +17,10 @@ Bureaucrat::Bureaucrat(const std::string &name,
     if (grade > 150)
         throw Bureaucrat::GradeTooLowException();
     this->_grade = grade;
-    std::cout << "Bureaucrat Name, Grade Constructor" << std::endl;
+    std::cout << "Bureaucrat Init Constructor" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &copy) {
-    *this = copy;
+Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name), _grade(copy._grade) {
     std::cout << "Bureaucrat Copy Constructor" << std::endl;
 }
 
@@ -51,6 +51,16 @@ void Bureaucrat::decrementGrade() throw(Bureaucrat::GradeTooLowException) {
     if (_grade == 150)
         throw Bureaucrat::GradeTooLowException();
     this->_grade++;
+}
+
+void Bureaucrat::signForm(Form &form) const {
+    try {
+        form.beSigned(*this);
+    } catch (std::exception &e) {
+        std::cout << this->_name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+        return;
+    }
+    std::cout << this->_name << " signed " << form.getName() << std::endl;
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw() {

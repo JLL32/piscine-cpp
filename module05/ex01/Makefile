@@ -1,5 +1,5 @@
 CC=clang++
-SRC=main.cpp Bureaucrat.cpp Form.cpp
+SRC=main.cpp Form.cpp Bureaucrat.cpp
 CFLAGS=-Wall -Wextra -Werror -std=c++98
 DFLAGS=-g
 NAME=program
