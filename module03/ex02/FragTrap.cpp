@@ -30,6 +30,10 @@ FragTrap &FragTrap::operator=(const FragTrap &operand) {
 }
 
 void FragTrap::attack(const std::string &target) {
+    if (_energy_points <= 0 || _hit_points <= 0) {
+        std::cout << "FragTrap " << _name << " can't do anything" << std::endl;
+        return;
+    }
     std::cout << "🗡 " << "FragTrap " << this->_name << " attacks " << target << ", causing " << this->_attack_damage
               << " points of damage!" << std::endl;
     this->_energy_points--;

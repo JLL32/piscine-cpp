@@ -30,6 +30,10 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &operand) {
 }
 
 void ScavTrap::attack(const std::string &target) {
+    if (_energy_points <= 0 || _hit_points <= 0) {
+        std::cout << "ScavTrap " << _name << " can't do anything" << std::endl;
+        return;
+    }
     std::cout << "🗡 " << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_attack_damage
               << " points of damage!" << std::endl;
     this->_energy_points--;
