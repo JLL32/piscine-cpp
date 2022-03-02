@@ -7,16 +7,12 @@
 
 #include <algorithm>
 
-template <typename T>
-int easyFind(T &container, int value)
-{
-     std::iterator<T> iter = std::find(container.begin(), container.end(), value);
-    for (int i = 0; i < container.size(); i++)
-    {
-        if (container[i] == value)
-            return i;
-    }
-    return -1;
+template<typename T>
+int easyFind(T &container, int value) {
+    typename T::iterator iter = std::find(container.begin(), container.end(), value);
+    if (iter == container.end())
+        throw std::out_of_range("Value not found");
+    return (int) (iter - container.begin());
 }
 
 #endif //EX00_EASYFINE_HPP
