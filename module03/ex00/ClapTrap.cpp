@@ -31,18 +31,30 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &operand) {
 }
 
 void ClapTrap::attack(const std::string &target) {
+    if (_energy_points <= 0 || _hit_points <= 0) {
+        std::cout << "ClapTrap " << _name << " can't do anything" << std::endl;
+        return;
+    }
     std::cout << "🗡 " << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_attack_damage
               << " points of damage!" << std::endl;
     this->_energy_points--;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
+    if (_energy_points <= 0 || _hit_points <= 0) {
+        std::cout << "ClapTrap " << _name << " can't take anymore damage" << std::endl;
+        return;
+    }
     std::cout << "🤕 " << this->_name << " Took" << amount << " points of damage" << std::endl;
     this->_hit_points -= amount;
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-    std::cout << "❤️🩹 " << this->_name << " Has been healed for " << amount << " points" << std::endl;
+    if (_energy_points <= 0 || _hit_points <= 0) {
+        std::cout << "ClapTrap " << _name << " can't do anything" << std::endl;
+        return;
+    }
+    std::cout << "❤️ " << this->_name << " Has been healed for " << amount << " points" << std::endl;
     this->_hit_points += amount;
     this->_energy_points--;
 }
