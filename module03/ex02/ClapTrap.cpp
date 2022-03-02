@@ -5,7 +5,7 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : _hit_points(10), _energy_points(10), _attack_damage(10) {
+ClapTrap::ClapTrap() : _hit_points(10), _energy_points(10), _attack_damage(0) {
     std::cout << "ClapTrap Default Constructor" << std::endl;
 }
 
@@ -14,7 +14,7 @@ ClapTrap::ClapTrap(const ClapTrap &copy) {
     std::cout << "ClapTrap Copy Constructor" << std::endl;
 }
 
-ClapTrap::ClapTrap(const std::string &name) : _name(name), _hit_points(10), _energy_points(10), _attack_damage(10) {
+ClapTrap::ClapTrap(const std::string &name) : _name(name), _hit_points(10), _energy_points(10), _attack_damage(0) {
     std::cout << "ClapTrap Constructor - name" << std::endl;
 }
 
@@ -31,17 +31,29 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &operand) {
 }
 
 void ClapTrap::attack(const std::string &target) {
+    if (_energy_points <= 0 || _hit_points <= 0) {
+        std::cout << "ClapTrap " << _name << " can't do anything" << std::endl;
+        return;
+    }
     std::cout << "🗡 " << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_attack_damage
               << " points of damage!" << std::endl;
     this->_energy_points--;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
+    if (_energy_points <= 0 || _hit_points <= 0) {
+        std::cout << "ClapTrap " << _name << " can't take anymore damage" << std::endl;
+        return;
+    }
     std::cout << "🤕 " << this->_name << " Took" << amount << " points of damage" << std::endl;
     this->_hit_points -= amount;
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
+    if (_energy_points <= 0 || _hit_points <= 0) {
+        std::cout << "ClapTrap " << _name << " can't do anything" << std::endl;
+        return;
+    }
     std::cout << "❤️🩹 " << this->_name << " Has been healed for " << amount << " points" << std::endl;
     this->_hit_points += amount;
     this->_energy_points--;
