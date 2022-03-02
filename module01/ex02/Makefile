@@ -2,7 +2,7 @@ CC=c++
 SRC= main.cpp
 CFLAGS=-Wall -Wextra -Werror -std=c++98
 DFLAGS=-g
-NAME=zombie
+NAME=program
 
 all: $(NAME)
 
