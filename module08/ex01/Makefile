@@ -1,4 +1,4 @@
-CC=clang++
+CC=c++
 SRC=main.cpp Span.cpp
 CFLAGS=-Wall -Wextra -Werror -std=c++98
 DFLAGS=-g

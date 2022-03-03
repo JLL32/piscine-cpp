@@ -6,6 +6,7 @@
 #define EX01_SPAN_HPP
 
 #include <vector>
+#include <cstdlib>
 
 class Span {
 public:
@@ -24,7 +25,7 @@ public:
     int longestSpan();
 
     template<typename Iter>
-    void addNumber(Iter begin, Iter end, unsigned int size) {
+    void addMutiple(Iter begin, Iter end, unsigned int size) {
         if (_n < size)
             throw (std::length_error("Too much elements!!!"));
         this->_vector.insert(this->_vector.end(), begin, end);

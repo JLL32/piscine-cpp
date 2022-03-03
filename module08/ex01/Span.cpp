@@ -31,13 +31,13 @@ int Span::shortestSpan() {
     if (_vector.size() < 2)
         throw std::length_error("You must at least have 2 elements");
     std::sort(_vector.begin(), _vector.end());
-    return _vector[1] - _vector[0];
+    return std::abs(static_cast<int>(_vector[1] - _vector[0]));
 }
 
 int Span::longestSpan() {
     if (_vector.size() < 2)
         throw std::length_error("You must at least have 2 elements");
     std::sort(_vector.begin(), _vector.end());
-    return _vector[_vector.size() - 1] - _vector[0];
+    return std::abs(static_cast<int>(_vector[_vector.size() - 1] - _vector[0]));
 }
 
