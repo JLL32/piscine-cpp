@@ -8,11 +8,11 @@
 #include <algorithm>
 
 template<typename T>
-int easyFind(T &container, int value) {
+bool easyFind(T &container, int value) {
     typename T::iterator iter = std::find(container.begin(), container.end(), value);
     if (iter == container.end())
         throw std::out_of_range("Value not found");
-    return (int) (iter - container.begin());
+    return true;
 }
 
 #endif //EX00_EASYFINE_HPP
