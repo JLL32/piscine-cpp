@@ -5,16 +5,16 @@
 #include "AAnimal.hpp"
 
 AAnimal::AAnimal() : type("AAnimal") {
-    std::cout << "Default Constructor for " << this->type << std::endl;
+    std::cout << "Default Constructor for Animal" << std::endl;
 }
 
 AAnimal::AAnimal(const AAnimal &copy) {
     *this = copy;
-    std::cout << "Copy Constructor for " << this->type << std::endl;
+    std::cout << "Copy Constructor for Animal" << std::endl;
 }
 
 AAnimal::~AAnimal() {
-    std::cout << "Destructor for " << this->type << std::endl;
+    std::cout << "Destructor for Animal" << std::endl;
 }
 
 AAnimal &AAnimal::operator=(const AAnimal &rhs) {
