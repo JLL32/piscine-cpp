@@ -3,6 +3,7 @@
 //
 
 #include "Span.hpp"
+#include <iterator>
 
 Span::Span(unsigned int n): _n(n) { }
 
@@ -30,8 +31,16 @@ void Span::addNumber(int n) {
 int Span::shortestSpan() {
     if (_vector.size() < 2)
         throw std::length_error("You must at least have 2 elements");
+
     std::sort(_vector.begin(), _vector.end());
-    return std::abs(static_cast<int>(_vector[1] - _vector[0]));
+
+    std::vector<int> deltas;
+    for (std::vector<unsigned int>::iterator iter = _vector.begin(); iter != _vector.end()-1 ; iter++)
+      deltas.push_back(*iter - *(iter+1));
+
+    std::sort(deltas.begin(), deltas.end());
+
+    return std::abs(deltas[deltas.size() - 1]);
 }
 
 int Span::longestSpan() {
