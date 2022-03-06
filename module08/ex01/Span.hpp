@@ -25,7 +25,7 @@ public:
     int longestSpan();
 
     template<typename Iter>
-    void addMutiple(Iter begin, Iter end, unsigned int size) {
+    void addNumber(Iter begin, Iter end, unsigned int size) {
         if (_n < size)
             throw (std::length_error("Too much elements!!!"));
         this->_vector.insert(this->_vector.end(), begin, end);

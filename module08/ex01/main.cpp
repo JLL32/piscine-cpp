@@ -18,7 +18,7 @@ int main() {
         v[i] = std::rand() % n;
     }
     Span sp2 = Span(n);
-    sp2.addMutiple(v.begin(), v.end(), v.size());
+    sp2.addNumber(v.begin(), v.end(), v.size());
     std::cout << sp2.shortestSpan() << std::endl;
     std::cout << sp2.longestSpan() << std::endl;
 
